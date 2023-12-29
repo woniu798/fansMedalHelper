@@ -9,7 +9,7 @@ import itertools
 from src import BiliUser
 
 log = logger.bind(user="B站粉丝牌助手")
-__VERSION__ = "0.3.6"
+__VERSION__ = "0.3.7"
 
 warnings.filterwarnings(
     "ignore",
@@ -49,7 +49,7 @@ except Exception as e:
 @log.catch
 async def main():
     messageList = []
-    session = aiohttp.ClientSession()
+    session = aiohttp.ClientSession(trust_env = True)
     try:
         log.warning("当前版本为: " + __VERSION__)
         resp = await (
